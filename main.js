@@ -6,7 +6,7 @@ var shuffleArray = function(array){
   var currentIndex= array.length, temporaryValue, randomIndex;
   while (currentIndex !==0 ){
     randomIndex= Math.floor(Math.random()*currentIndex);
-    currrentIndex -= 1;
+    currentIndex -= 1;
     temporaryValue = array[currentIndex];
     array[currentIndex]=array[randomIndex];
     array[randomIndex]= temporaryValue;
@@ -15,20 +15,30 @@ var shuffleArray = function(array){
 }
 var bracketItems = [];
 
+var appendMachine = function(array){
+  var shuffledArray = shuffleArray(array);
+  console.log(shuffledArray);
+  for(i=0; i<4; i++){
+    var item = "<p>" + shuffledArray[i] + "</p>";
+
+    $('#bucket-'+i).append(item)
+  }
+
+}
+
+
 $('document').ready(function(){
 
 $('#form').on('submit', function(event){
   event.preventDefault();
   var data = $('#form:input');
   bracketItems.push(data);
-  console.log(data);
-})
+  console.log(bracketItems);
 
 })
 
+})
 
-var shuffledArray = shuffleArray(bracketItems);
-
-for(i=0; i<32; i++){
-  $('#bucket-'+i).append(shuffledArray[i])
-}
+$('#bracketize').on('click', function(){
+  appendMachine(bracketItems);
+})
