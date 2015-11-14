@@ -1,7 +1,4 @@
-var randomNumber = function (){
-  return Math.floor(Math.random()*33)
-}
-
+// Function to shuffle array
 var shuffleArray = function(array){
   var currentIndex= array.length, temporaryValue, randomIndex;
   while (currentIndex !==0 ){
@@ -13,32 +10,36 @@ var shuffleArray = function(array){
   }
   return array;
 }
-var bracketItems = [];
 
+// Function to append shuffled array items to body divs
 var appendMachine = function(array){
   var shuffledArray = shuffleArray(array);
-  console.log(shuffledArray);
+  // console.log(shuffledArray);
   for(i=0; i<4; i++){
-    var item = "<p>" + shuffledArray[i] + "</p>";
+    var item = shuffledArray[i]
+    var concatItem = "<p>" + shuffledArray[i] + "</p>";
 
     $('#bucket-'+i).append(item)
   }
 
 }
-
-
+// jQuery to take input items and assign them to an array.
+var bracketItems = [];
 $('document').ready(function(){
 
 $('#form').on('submit', function(event){
-  event.preventDefault();
-  var data = $('#form:input');
-  bracketItems.push(data);
-  console.log(bracketItems);
 
-})
+  event.preventDefault();
+  var data = $('#form: input');
+  bracketItems.push(data);
+  console.log(bracketItems[0]);
 
 })
 
 $('#bracketize').on('click', function(){
   appendMachine(bracketItems);
 })
+})
+
+// jQuery Event Listener to invoke appendmachine to add the bracketItems array
+// to the divs.
