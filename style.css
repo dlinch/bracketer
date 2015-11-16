@@ -12,3 +12,14 @@
 .redBorder{
   border: 1px solid red;
 }
+
+.submitted {
+  float: right;
+  min-height: 20%;
+  min-width: 20%;
+  background-color: tomato;
+}
+
+/*.submittedTitle {
+  float: right;
+}*/

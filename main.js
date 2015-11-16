@@ -48,6 +48,7 @@ $('#form').on('submit', function(event){
       console.log(data);
       bracketItems.push(data);
       this.reset();
+      $('.submitted').append(data + ", ");
 }
 })
 
