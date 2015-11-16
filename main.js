@@ -28,6 +28,7 @@ var appendMachine = function(array){
 
 // jQuery to take input items and assign them to an array.
 var bracketItems = [];
+
 $('document').ready(function(){
 
 $('#form').on('submit', function(event){
@@ -42,13 +43,23 @@ $('#form').on('submit', function(event){
     $('#bucket-0').before(warning);
   }
   else {
-      console.log('else branch')
+
+    if($('#bracketInput').hasClass('hide')){
+      event.preventDefault();
+      var data = $('textarea').val();
+      console.log("textarea input")
+      bracketItems = data.split(',')
+      $('.submitted').append(bracketItems + ", ")
+      this.reset();
+    }
+      else {
       event.preventDefault();
       var data = $('#bracketInput').val();
       console.log(data);
       bracketItems.push(data);
       this.reset();
       $('.submitted').append(data + ", ");
+}
 }
 })
 
@@ -70,6 +81,7 @@ $('#clearBracket').on('click', function(){
     $('#restoreBracket').removeClass('hide')
     bracketItems = [];
     $('#bracketize').removeClass('redBorder');
+    $('body p').remove();
   }
 })
 
@@ -81,7 +93,10 @@ $('#restoreBracket').on('click', function(){
   bracketItems= restoredBracket;
 })
 
-
+  $('#listButton').on('click', function(){
+    $('textarea').toggleClass('hide');
+    $('#bracketInput').toggleClass('hide')
+  })
 
 
 })
