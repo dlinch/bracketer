@@ -8,3 +8,7 @@
 .hide{
   display: none;
 }
+
+.redBorder{
+  border: 1px solid red;
+}

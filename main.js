@@ -32,28 +32,43 @@ $('document').ready(function(){
 
 $('#form').on('submit', function(event){
 
-  event.preventDefault();
-  var data = $('#bracketInput').val();
-  console.log(data);
-  bracketItems.push(data);
-  this.reset();
+  if ($('#bracketize').hasClass('redBorder'))
+  {
+    // debugger;
+    event.preventDefault();
+    console.log("if branch")
 
+    var warning = $("<p><em>Bracket is closed, son!</em></p>")
+    $('#bucket-0').before(warning);
+  }
+  else {
+      console.log('else branch')
+      event.preventDefault();
+      var data = $('#bracketInput').val();
+      console.log(data);
+      bracketItems.push(data);
+      this.reset();
+}
 })
 
 // jQuery Event Listener to invoke appendmachine to add the bracketItems array
 // to the divs.
 
 $('#bracketize').on('click', function(){
+
   var shuffledArray = shuffleArray(bracketItems);
   console.log(shuffledArray);
   appendMachine(shuffledArray);
+  $(this).addClass('redBorder');
 })
-})
+
 
 $('#clearBracket').on('click', function(){
   for(i=0; i<bucketNumber; i++){
     $('#bucket-'+i).empty();
     $('#restoreBracket').removeClass('hide')
+    bracketItems = [];
+    $('#bracketize').removeClass('redBorder');
   }
 })
 
@@ -61,4 +76,11 @@ $('#restoreBracket').on('click', function(){
   var restoredBracket = JSON.parse(localStorage.getItem('appendedArray'))
   console.log(restoredBracket);
   appendMachine(restoredBracket);
+  $('#bracketize').addClass('redBorder');
+  bracketItems= restoredBracket;
+})
+
+
+
+
 })
