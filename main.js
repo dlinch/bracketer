@@ -14,12 +14,12 @@ var shuffleArray = function(array){
 // Function to append shuffled array items to body divs
 var appendMachine = function(array){
   var shuffledArray = shuffleArray(array);
-  // console.log(shuffledArray);
-  for(i=0; i<4; i++){
-    var item = shuffledArray[i]
-    var concatItem = "<p>" + shuffledArray[i] + "</p>";
+  console.log(shuffledArray);
+  for(i=0; i<shuffledArray.length; i++){
 
-    $('#bucket-'+i).append(item)
+    var item = "<p>" + shuffledArray[i] + "</p>";
+  // console.log(shuffledArray[0]);
+    $('#bucket-'+i).append(item);
   }
 
 }
@@ -30,9 +30,10 @@ $('document').ready(function(){
 $('#form').on('submit', function(event){
 
   event.preventDefault();
-  var data = $('#form: input');
+  var data = $('#bracketInput').val();
+  console.log(data);
   bracketItems.push(data);
-  console.log(bracketItems[0]);
+  // console.log(bracketItems[0]);
 
 })
 
