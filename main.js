@@ -50,6 +50,6 @@ $('#bracketize').on('click', function(){
 
 $('#clearBracket').on('click', function(){
   for(i=0; i<bucketNumber; i++){
-    $('#bucket-'+i).innerHTML("");
+    $('#bucket-'+i).empty();
   }
 })
