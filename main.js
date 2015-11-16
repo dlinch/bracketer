@@ -16,7 +16,7 @@ var shuffleArray = function(array){
 // Function to append shuffled array items to body divs
 var appendMachine = function(array){
 
-  localStorage.setItem('appendedArray', array)
+  localStorage.setItem('appendedArray', JSON.stringify(array))
   for(i=0; i<array.length; i++){
 
     var item = "<p>" + array[i] + "</p>";
@@ -58,6 +58,7 @@ $('#clearBracket').on('click', function(){
 })
 
 $('#restoreBracket').on('click', function(){
-  var restoredBracket = localStorage.getItem('appendedArray')
+  var restoredBracket = JSON.parse(localStorage.getItem('appendedArray'))
   console.log(restoredBracket);
+  appendMachine(restoredBracket);
 })
