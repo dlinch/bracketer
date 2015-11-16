@@ -1,6 +1,6 @@
-// Function to shuffle array
 var bucketNumber = 4;
-
+// Function to shuffle array
+//-------------------------------------------------------
 var shuffleArray = function(array){
   var currentIndex= array.length, temporaryValue, randomIndex;
   while (currentIndex !==0 ){
@@ -14,6 +14,7 @@ var shuffleArray = function(array){
 }
 
 // Function to append shuffled array items to body divs
+//-------------------------------------------------------
 var appendMachine = function(array){
 
   localStorage.setItem('appendedArray', JSON.stringify(array))
@@ -27,6 +28,7 @@ var appendMachine = function(array){
 }
 
 // jQuery to take input items and assign them to an array.
+//-------------------------------------------------------
 var bracketItems = [];
 
 $('document').ready(function(){
@@ -49,7 +51,7 @@ $('#form').on('submit', function(event){
       var data = $('textarea').val();
       console.log("textarea input")
       bracketItems = data.split(',')
-      $('.submitted').append(bracketItems + ", ")
+      $('.submitted').append('<p>'+ bracketItems + ", " + '</p>')
       this.reset();
     }
       else {
@@ -58,14 +60,14 @@ $('#form').on('submit', function(event){
       console.log(data);
       bracketItems.push(data);
       this.reset();
-      $('.submitted').append(data + ", ");
+      $('.submitted').append('<p>' + data + ", </p>");
 }
 }
 })
 
 // jQuery Event Listener to invoke appendmachine to add the bracketItems array
 // to the divs.
-
+//-------------------------------------------------------
 $('#bracketize').on('click', function(){
 
   var shuffledArray = shuffleArray(bracketItems);
@@ -74,25 +76,34 @@ $('#bracketize').on('click', function(){
   $(this).addClass('redBorder');
 })
 
-
+// Clear bracket and submission div
+//-------------------------------------------------------
 $('#clearBracket').on('click', function(){
   for(i=0; i<bucketNumber; i++){
     $('#bucket-'+i).empty();
+    }
+    $('.submitted').empty();
     $('#restoreBracket').removeClass('hide')
     bracketItems = [];
     $('#bracketize').removeClass('redBorder');
     $('body p').remove();
-  }
+
 })
 
+// Restore most recent bracket from local storage
+//-------------------------------------------------------
 $('#restoreBracket').on('click', function(){
   var restoredBracket = JSON.parse(localStorage.getItem('appendedArray'))
   console.log(restoredBracket);
   appendMachine(restoredBracket);
   $('#bracketize').addClass('redBorder');
   bracketItems= restoredBracket;
+  // $('submitted').append(restoredBracket[i]+", ");
 })
 
+
+// Toggle between list input and single item input
+//-------------------------------------------------------
   $('#listButton').on('click', function(){
     $('textarea').toggleClass('hide');
     $('#bracketInput').toggleClass('hide')
