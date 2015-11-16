@@ -4,3 +4,7 @@
   background-color: lightblue;
   margin: 5%
 }
+
+.hide{
+  display: none;
+}

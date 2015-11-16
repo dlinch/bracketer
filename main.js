@@ -1,5 +1,6 @@
 // Function to shuffle array
 var bucketNumber = 4;
+
 var shuffleArray = function(array){
   var currentIndex= array.length, temporaryValue, randomIndex;
   while (currentIndex !==0 ){
@@ -14,13 +15,12 @@ var shuffleArray = function(array){
 
 // Function to append shuffled array items to body divs
 var appendMachine = function(array){
-  var shuffledArray = shuffleArray(array);
-  console.log(shuffledArray);
-  localStorage.setItem('shuffledItems', shuffledArray)
-  for(i=0; i<shuffledArray.length; i++){
 
-    var item = "<p>" + shuffledArray[i] + "</p>";
-  // console.log(shuffledArray[0]);
+  localStorage.setItem('appendedArray', array)
+  for(i=0; i<array.length; i++){
+
+    var item = "<p>" + array[i] + "</p>";
+    $('#bucket-'+i).empty();
     $('#bucket-'+i).prepend(item);
   }
 
@@ -44,12 +44,20 @@ $('#form').on('submit', function(event){
 // to the divs.
 
 $('#bracketize').on('click', function(){
-  appendMachine(bracketItems);
+  var shuffledArray = shuffleArray(bracketItems);
+  console.log(shuffledArray);
+  appendMachine(shuffledArray);
 })
 })
 
 $('#clearBracket').on('click', function(){
   for(i=0; i<bucketNumber; i++){
     $('#bucket-'+i).empty();
+    $('#restoreBracket').removeClass('hide')
   }
+})
+
+$('#restoreBracket').on('click', function(){
+  var restoredBracket = localStorage.getItem('appendedArray')
+  console.log(restoredBracket);
 })
