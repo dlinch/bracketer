@@ -1,6 +1,7 @@
 .bucket {
   height: 100px;
-  width: 200px;
+  width: 20%;
+  min-width: 50px;
   background-color: lightblue;
   margin: 5%
 }
@@ -26,4 +27,8 @@
 }*/
 .submitted p {
   display: inline-block;
+}
+
+.container {
+  padding-top: 150px;
 }

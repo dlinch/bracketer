@@ -123,17 +123,187 @@ $('#removeLast').on('click', function(){
 
 // Remove current buckets on page, append new buckets based on selected option.
 //----------------------------------------------------------------
+
+
+
+
 var bucketNumber = 4;
 $('#bracketSize').change(function(){
   $('select option:selected').each(function(){
+
     $('.container').empty();
     $('#bracketize').removeClass('redBorder');
-    bucketNumber = parseInt(2*($(this).val())-1);
-    for(i=0; i<bucketNumber; i++){
-      var newBucket = $('<div id="bucket-'+ i + '" class="bucket">'+i+'</div>')
-      $('.container').append(newBucket);
+
+    var columnFunction = function(){
+      for (var i = 0; i < bracketColumns[textSeedSize]; i++) {
+        var newColumn = $('<div id="column-'+i+'" class="col-xs-'+Math.floor(12/bracketColumns[textSeedSize])+'"></div>')
+        $('.container').append(newColumn);
+      }
     }
-  })
+
+    var seedSize = ($(this).val())
+    console.log(seedSize)
+
+    bucketNumber = 2*parseInt(seedSize)-2;
+    console.log(bucketNumber)
+
+    var textSeedSize = "seed"+seedSize
+
+    console.log(bracketColumns[textSeedSize])
+
+
+    //--------------------4 Seed Styling-------------
+    if(bracketColumns[textSeedSize]===4){
+        columnFunction();
+
+        for(i=0; i<bucketNumber; i++){
+
+          var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+          if(i<2){
+            $('#column-0').append(newBucket);
+          }
+
+          else if (i<4){
+            $('#column-3').append(newBucket);
+          }
+
+          else if (i<5){
+            $('#column-1').append(newBucket);
+          }
+
+          else {
+            $('#column-2').append(newBucket);
+          }
+        }
+    }
+
+    //--------------------8 Seed Styling-------------
+    if(bracketColumns[textSeedSize]===6){
+
+        columnFunction();
+
+        for(i=0; i<bucketNumber; i++){
+          var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+          if(i<4){
+            $('#column-0').append(newBucket);
+          }
+
+          else if(i<8){
+            $('#column-5').append(newBucket);
+          }
+
+          else if(i<10){
+            $('#column-1').append(newBucket);
+          }
+
+          else if(i<11){
+            $('#column-2').append(newBucket);
+          }
+
+          else if(i<12){
+            $('#column-3').append(newBucket);
+          }
+
+          else {
+            $('#column-4').append(newBucket);
+          }
+        }
+    }
+
+    //--------------------16 Seed Styling-------------
+    if(bracketColumns[textSeedSize]===8){
+
+        columnFunction();
+
+        for(i=0; i<bucketNumber; i++){
+          var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+          if(i<8){
+            $('#column-0').append(newBucket);
+          }
+
+          else if(i<16){
+            $('#column-7').append(newBucket);
+          }
+
+          else if(i<20){
+            $('#column-1').append(newBucket);
+          }
+
+          else if(i<22){
+            $('#column-2').append(newBucket);
+          }
+
+          else if(i<23){
+            $('#column-3').append(newBucket);
+          }
+
+          else if(i<24){
+            $('#column-4').append(newBucket);
+          }
+
+          else if(i<26){
+            $('#column-5').append(newBucket);
+          }
+
+          else {
+            $('#column-6').append(newBucket);
+          }
+        }
+    }
+
+
+
+    //--------------------32 Seed Styling-------------
+    if(bracketColumns[textSeedSize]===10){
+
+        columnFunction();
+
+        for(i=0; i<bucketNumber; i++){
+          var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+          if(i<16){
+            $('#column-0').append(newBucket);
+          }
+
+          else if(i<32){
+            $('#column-9').append(newBucket);
+          }
+
+          else if(i<39){
+            $('#column-1').append(newBucket);
+          }
+
+          else if(i<44){
+            $('#column-2').append(newBucket);
+          }
+
+          else if(i<46){
+            $('#column-3').append(newBucket);
+          }
+
+          else if(i<47){
+            $('#column-4').append(newBucket);
+          }
+
+          else if(i<48){
+            $('#column-5').append(newBucket);
+          }
+
+          else if(i<50) {
+            $('#column-6').append(newBucket);
+          }
+
+          else if(i<54) {
+            $('#column-7').append(newBucket);
+          }
+
+          else {
+            $('#column-8').append(newBucket);
+          }
+
+        }
+    }
+
+})
 })
 
 var bracketColumns = {
@@ -149,3 +319,8 @@ var bracketColumns = {
 
 
 }) // End of document.ready function
+
+
+
+// Column sizing object
+//-------------------------------------------------------
