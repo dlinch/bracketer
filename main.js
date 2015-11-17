@@ -128,9 +128,9 @@ $('#bracketSize').change(function(){
   $('select option:selected').each(function(){
     $('.container').empty();
     $('#bracketize').removeClass('redBorder');
-    bucketNumber = parseInt($(this).val());
+    bucketNumber = parseInt(2*($(this).val())-1);
     for(i=0; i<bucketNumber; i++){
-      var newBucket = $('<div id="bucket-'+ i + '" class="bucket"></div>')
+      var newBucket = $('<div id="bucket-'+ i + '" class="bucket">'+i+'</div>')
       $('.container').append(newBucket);
     }
   })
