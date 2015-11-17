@@ -1,0 +1,9 @@
+{
+  "firebase": "incandescent-torch-8201",
+  "public": "Users/dlinch/Dev/main-project",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

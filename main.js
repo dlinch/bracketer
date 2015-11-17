@@ -51,7 +51,10 @@ $('#form').on('submit', function(event){
       var data = $('textarea').val();
       console.log("textarea input")
       bracketItems = data.split(',')
-      $('.submitted').append('<p>'+ bracketItems + ", " + '</p>')
+
+      for(i=0; i<bracketItems.lenght; i++){
+      $('.submitted').append('<p>'+ bracketItems[i]  + ', </p>')
+      }
       this.reset();
     }
       else {
@@ -60,7 +63,7 @@ $('#form').on('submit', function(event){
       console.log(data);
       bracketItems.push(data);
       this.reset();
-      $('.submitted').append('<p>' + data + ", </p>");
+      $('.submitted').append('<p>' + data + ',&nbsp;</p>');
 }
 }
 })
@@ -114,12 +117,10 @@ $('#restoreBracket').on('click', function(){
 $('#removeLast').on('click', function(){
   bracketItems.pop();
   console.log(bracketItems);
+
   $('p:last-child').remove();
 })
 
 
 
 })
-
-console.log('skippy')
-console.log('loggins')

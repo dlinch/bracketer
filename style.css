@@ -23,3 +23,6 @@
 /*.submittedTitle {
   float: right;
 }*/
+.submitted p {
+  display: inline-block;
+}
