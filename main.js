@@ -1,4 +1,4 @@
-var bucketNumber = 4;
+
 // Function to shuffle array
 //-------------------------------------------------------
 var shuffleArray = function(array){
@@ -52,8 +52,8 @@ $('#form').on('submit', function(event){
       console.log("textarea input")
       bracketItems = data.split(',')
 
-      for(i=0; i<bracketItems.lenght; i++){
-      $('.submitted').append('<p>'+ bracketItems[i]  + ', </p>')
+      for(i=0; i<bracketItems.length; i++){
+      $('.submitted').append('<p>'+ bracketItems[i]  + ',&nbsp;</p>')
       }
       this.reset();
     }
@@ -121,6 +121,25 @@ $('#removeLast').on('click', function(){
   $('p:last-child').remove();
 })
 
-
-
+// Remove current buckets on page, append new buckets based on selected option.
+//----------------------------------------------------------------
+var bucketNumber = 4;
+$('#bracketSize').change(function(){
+  $('select option:selected').each(function(){
+    $('.container').empty();
+    $('#bracketize').removeClass('redBorder');
+    bucketNumber = parseInt($(this).val());
+    for(i=0; i<bucketNumber; i++){
+      var newBucket = $('<div id="bucket-'+ i + '" class="bucket"></div>')
+      $('.container').append(newBucket);
+    }
+  })
 })
+
+
+
+
+
+
+
+}) // End of document.ready function

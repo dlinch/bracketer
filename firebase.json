@@ -1,6 +1,6 @@
 {
   "firebase": "incandescent-torch-8201",
-  "public": "Users/dlinch/Dev/main-project",
+  "public": "./",
   "ignore": [
     "firebase.json",
     "**/.*",
