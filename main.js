@@ -109,5 +109,17 @@ $('#restoreBracket').on('click', function(){
     $('#bracketInput').toggleClass('hide')
   })
 
+// Remove most recent item added to submission staging area
+//---------------------------------------------------------
+$('#removeLast').on('click', function(){
+  bracketItems.pop();
+  console.log(bracketItems);
+  $('p:last-child').remove();
+})
+
+
 
 })
+
+console.log('skippy')
+console.log('loggins')
