@@ -17,6 +17,7 @@
   float: right;
   min-height: 20%;
   min-width: 20%;
+  max-width: 30%;
   background-color: tomato;
 }
 

@@ -136,7 +136,13 @@ $('#bracketSize').change(function(){
   })
 })
 
-
+var bracketColumns = {
+  seed4: 4,
+  seed8: 6,
+  seed16: 8,
+  seed32: 10,
+  seed64: 12
+}
 
 
 
