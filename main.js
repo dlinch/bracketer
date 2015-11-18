@@ -383,9 +383,9 @@ var bracketColumns = {
 $('#nfl').on('click', function(){
 
   $.ajax({
-    url: "https://api.fantasydata.net/nfl/v2/JSON/Teams/2015REG&",
+    url: "https://cors-anywhere.herokuapp.com/https://api.fantasydata.net/nfl/v2/JSON/Teams/2015REG",
     beforeSend: function(xhrObj){
-      xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', "");
+      xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', "aeb13529dad34f11acaa6e1ed8132001");
     },
     type: "GET",
     data: "{body}",
@@ -393,6 +393,13 @@ $('#nfl').on('click', function(){
 
   .done(function(data){
       console.log(data);
+      var nflTeams=[];
+      for(i=0; i<data.length;i++){
+        var team = data[i]
+        nflTeams[i]= team['Name']
+      }
+      var nflShuffle = shuffleArray(nflTeams);
+      appendMachine(nflShuffle);
     })
   .fail(function(){
     alert("Didn't work, yo!")
