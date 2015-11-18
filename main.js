@@ -303,6 +303,69 @@ $('#bracketSize').change(function(){
         }
     }
 
+    //--------------------64 Seed Styling-------------
+    if(bracketColumns[textSeedSize]===12){
+
+      columnFunction();
+
+      for(i=0; i<bucketNumber; i++){
+        var newBucket = $('<div id="bucket-'+i+'" class="col-xs-12 bucket"></div>')
+
+        if(i<32){
+          $('#column-0').append(newBucket);
+        }
+
+        else if(i<64){
+          $('#column-11').append(newBucket);
+        }
+
+        else if(i<80){
+          $('#column-1').append(newBucket);
+        }
+
+        else if(i<88){
+          $('#column-2').append(newBucket);
+        }
+
+        else if(i<92){
+          $('#column-3').append(newBucket);
+        }
+
+        else if(i<94){
+          $('#column-4').append(newBucket);
+        }
+
+        else if(i<95){
+          $('#column-5').append(newBucket);
+        }
+
+        else if(i<96){
+          $('#column-6').append(newBucket);
+        }
+
+        else if(i<98){
+          $('#column-7').append(newBucket);
+        }
+
+        else if(i<102){
+          $('#column-8').append(newBucket);
+        }
+
+        else if (i<110){
+          $('#column-9').append(newBucket);
+        }
+
+        else {
+          $('#column-10').append(newBucket);
+        }
+      }
+
+
+    }
+
+
+
+
 })
 })
 
