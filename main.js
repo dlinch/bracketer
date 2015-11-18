@@ -411,17 +411,18 @@ $('#nfl').on('click', function(){
   })
 
   .done(function(data){
-      // $('option:selected').removeAttr('selected');
-      // $('option[value="32"]').attr('selected');
-      console.log(data);
-      var nflTeams=[];
-      for(i=0; i<data.length;i++){
-        var team = data[i]
-        nflTeams[i]= team['Name']
+    $('option[value="32"]').attr('selected', true);
+    $('#bracketSize').trigger('change');
+    console.log(data);
+    var nflTeams=[];
+    for(i=0; i<data.length;i++){
+      var team = data[i]
+      nflTeams[i]= team['Name']
       }
-      var nflShuffle = shuffleArray(nflTeams);
-      appendMachine(nflShuffle);
+    var nflShuffle = shuffleArray(nflTeams);
+    appendMachine(nflShuffle);
     })
+
   .fail(function(){
     alert("Didn't work, yo!")
   })
