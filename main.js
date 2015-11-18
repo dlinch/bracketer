@@ -368,7 +368,8 @@ $('#bracketSize').change(function(){
 
 })
 })
-
+// Column sizing object
+//-------------------------------------------------------
 var bracketColumns = {
   seed4: 4,
   seed8: 6,
@@ -377,13 +378,29 @@ var bracketColumns = {
   seed64: 12
 }
 
+// NFL AJAX call on button progress
+// -------------------------------------------------------------
+$('#nfl').on('click', function(){
 
+  $.ajax({
+    url: "https://api.fantasydata.net/nfl/v2/JSON/Teams/2015REG&",
+    beforeSend: function(xhrObj){
+      xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', "");
+    },
+    type: "GET",
+    data: "{body}",
+  })
+
+  .done(function(data){
+      console.log(data);
+    })
+  .fail(function(){
+    alert("Didn't work, yo!")
+  })
+
+
+})
 
 
 
 }) // End of document.ready function
-
-
-
-// Column sizing object
-//-------------------------------------------------------
