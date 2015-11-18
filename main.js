@@ -1,4 +1,4 @@
-
+var seedSelection = 4;
 // Function to shuffle array
 //-------------------------------------------------------
 var shuffleArray = function(array){
@@ -18,13 +18,11 @@ var shuffleArray = function(array){
 var appendMachine = function(array){
 
   localStorage.setItem('appendedArray', JSON.stringify(array))
-  for(i=0; i<array.length; i++){
-
+  for(i=0; (i<array.length && i<seedSelection); i++){
     var item = "<p>" + array[i] + "</p>";
     $('#bucket-'+i).empty();
     $('#bucket-'+i).prepend(item);
   }
-
 }
 
 // jQuery to take input items and assign them to an array.
@@ -50,7 +48,17 @@ $('#form').on('submit', function(event){
       event.preventDefault();
       var data = $('textarea').val();
       console.log("textarea input")
+
+      if(bracketItems.length>0){
+        var textArray= data.split(',')
+        // if (textArray[textArray.length]===""){
+        //   textarray.pop();
+        // }
+        bracketItems = bracketItems.concat(textArray)
+        $('.submitted').empty();
+      } else{
       bracketItems = data.split(',')
+    }
 
       for(i=0; i<bracketItems.length; i++){
       $('.submitted').append('<p>'+ bracketItems[i]  + ',&nbsp;</p>')
@@ -127,7 +135,7 @@ $('#removeLast').on('click', function(){
 
 
 
-var bucketNumber = 4;
+
 $('#bracketSize').change(function(){
   $('select option:selected').each(function(){
 
@@ -142,6 +150,7 @@ $('#bracketSize').change(function(){
     }
 
     var seedSize = ($(this).val())
+    seedSelection = seedSize
     console.log(seedSize)
 
     bucketNumber = 2*parseInt(seedSize)-2;
@@ -245,8 +254,11 @@ $('#bracketSize').change(function(){
             $('#column-5').append(newBucket);
           }
 
-          else {
+          else if(i<30){
             $('#column-6').append(newBucket);
+          }
+          else {
+            alert('Too many items! We left off the rest.')
           }
         }
     }
@@ -296,8 +308,11 @@ $('#bracketSize').change(function(){
             $('#column-7').append(newBucket);
           }
 
-          else {
+          else if (i<63){
             $('#column-8').append(newBucket);
+          }
+          else {
+            alert('Too many items! We left off the rest.')
           }
 
         }
@@ -355,8 +370,12 @@ $('#bracketSize').change(function(){
           $('#column-9').append(newBucket);
         }
 
-        else {
+        else if(i<126){
           $('#column-10').append(newBucket);
+        }
+
+        else {
+          alert('Too many items! We left off the rest.')
         }
       }
 
