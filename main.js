@@ -404,7 +404,7 @@ $('#nfl').on('click', function(){
   $.ajax({
     url: "https://cors-anywhere.herokuapp.com/https://api.fantasydata.net/nfl/v2/JSON/Teams/2015REG",
     beforeSend: function(xhrObj){
-      xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', "aeb13529dad34f11acaa6e1ed8132001");
+      xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', apiKey);
     },
     type: "GET",
     data: "{body}",
