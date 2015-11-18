@@ -3,7 +3,9 @@
   width: 20%;
   min-width: 50px;
   background-color: lightblue;
-  margin: 5%
+  margin: 5%;
+  overflow: hidden;
+  white-space: pre-wrap;
 }
 
 .hide{
@@ -31,4 +33,8 @@
 
 .container {
   padding-top: 150px;
+}
+
+.bucket p {
+  font-size: .75em;
 }
