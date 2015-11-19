@@ -38,3 +38,6 @@
 .bucket p {
   font-size: .75em;
 }
+
+/* display flex on columns
+buckets get align-items: center*/

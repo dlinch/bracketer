@@ -90,7 +90,7 @@ $('#bracketize').on('click', function(){
 // Clear bracket and submission div
 //-------------------------------------------------------
 $('#clearBracket').on('click', function(){
-  for(i=0; i<bucketNumber; i++){
+  for(i=0; i<seedSelection; i++){
     $('#bucket-'+i).empty();
     }
     $('.submitted').empty();
