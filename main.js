@@ -13,6 +13,7 @@ var shuffleArray = function(array){
   return array;
 }
 
+
 // Function to append shuffled array items to body divs
 //-------------------------------------------------------
 var appendMachine = function(array){
@@ -25,15 +26,24 @@ var appendMachine = function(array){
   }
 }
 
+
+// Function whichs allows divs to accept a drop action
+//-----------------------------------------------------
 function allowDrop(ev){
   ev.preventDefault();
 }
 
+
+// Function whichs allows divs to accept a drag action
+//-----------------------------------------------------
 function drag(ev){
   ev.dataTransfer.setData('text', ev.target.id);
   ;
 }
 
+
+// Function defining what happens on the drop event
+//-----------------------------------------------------
 function drop(ev){
   ev.preventDefault();
   ev.target.innerHTML="";
@@ -42,8 +52,9 @@ function drop(ev){
   var nodeCopy = document.getElementById(data).cloneNode(true);
   nodeCopy.id=data+"1"
   ev.target.appendChild(nodeCopy);
-  // ev.target.innerHTML=data;
 }
+
+
 // jQuery to take input items and assign them to an array.
 //-------------------------------------------------------
 var bracketItems = [];
@@ -58,12 +69,13 @@ $('#form').on('submit', function(event){
     event.preventDefault();
     console.log("if branch")
 
-    var warning = $("<p><em>Bracket is closed, son!</em></p>")
-    $('#bucket-0').before(warning);
+    var warning = "Bracket is closed, son!</em></p>"
+    alert(warning);
   }
   else {
 
     if($('#bracketInput').hasClass('hide')){
+      debugger;
       event.preventDefault();
       var data = $('textarea').val();
       console.log("textarea input")
@@ -96,6 +108,7 @@ $('#form').on('submit', function(event){
 }
 })
 
+
 // jQuery Event Listener to invoke appendmachine to add the bracketItems array
 // to the divs.
 //-------------------------------------------------------
@@ -106,6 +119,7 @@ $('#bracketize').on('click', function(){
   appendMachine(shuffledArray);
   $(this).addClass('redBorder');
 })
+
 
 // Clear bracket and submission div
 //-------------------------------------------------------
@@ -120,6 +134,7 @@ $('#clearBracket').on('click', function(){
     $('body p').remove();
 
 })
+
 
 // Restore most recent bracket from local storage
 //-------------------------------------------------------
@@ -140,6 +155,7 @@ $('#restoreBracket').on('click', function(){
     $('#bracketInput').toggleClass('hide')
   })
 
+
 // Remove most recent item added to submission staging area
 //---------------------------------------------------------
 $('#removeLast').on('click', function(){
@@ -149,12 +165,9 @@ $('#removeLast').on('click', function(){
   $('p:last-child').remove();
 })
 
+
 // Remove current buckets on page, append new buckets based on selected option.
 //----------------------------------------------------------------
-
-
-
-
 
 $('#bracketSize').change(function(){
   $('select option:selected').each(function(){
