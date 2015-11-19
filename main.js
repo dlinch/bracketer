@@ -69,7 +69,7 @@ $('#form').on('submit', function(event){
     event.preventDefault();
     console.log("if branch")
 
-    var warning = "Bracket is closed, son!</em></p>"
+    var warning = "Bracket is closed, son!"
     alert(warning);
   }
   else {
