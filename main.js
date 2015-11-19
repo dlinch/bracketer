@@ -319,7 +319,7 @@ $('#bracketSize').change(function(){
             $('#column-9').append(newBucket);
           }
 
-          else if(i<39){
+          else if(i<40){
             $('#column-1').append(newBucket);
           }
 

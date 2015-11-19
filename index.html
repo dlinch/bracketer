@@ -14,15 +14,16 @@
 <h3>Bracketing, it is your destiny.</h3>
 </header>
 
-<button type='button' id="nfl" class='col-xs-pull-2'>NFL</button>
+
 
 <form id="form">
+  <button type='button' id="nfl" class='col-xs-pull-2'>NFL</button>
   <button id="listButton" type="button">Switch Inputs</button>
-  <label>Input items here.<input id="bracketInput" autofocus></label>
-  <br><textarea class='hide' placeholder="Add items in a comma separated list. Do not place comma on last item."></textarea>
+  <label>Input items here: <input id="bracketInput" autofocus></label>
+  <textarea class='hide' placeholder="Add items in a comma separated list. Do not place comma on last item."></textarea>
   <button type="submit">Submit.</button>
   <button id="removeLast" type="button">Remove Last</button>
-  <select name="select" id="bracketSize">
+  <label><select name="select" id="bracketSize">
     <option value="4" selected>
       4
     </option>
@@ -38,7 +39,7 @@
     <option value="64">
       64
     </option>
-  </select>
+  </select> Bracket Size</label>
 </form>
 
 <!-- <h3 class="submittedTitle">Submitted Items</h3> -->
@@ -46,7 +47,12 @@
 
 </div>
 
-<br><label>Bracketize me, Captain <button id="bracketize">Bracketize</button></label>
+<!-- <label>Bracketize me, Captain</label> -->
+<br><button id="bracketize">Bracketize</button>
+
+<button id="clearBracket">Clear Bracket</button>
+<button id="restoreBracket" class="hide">Restore Bracket</button>
+
 
 <div class="container row">
 
@@ -71,9 +77,6 @@
 
 
 </div>
-
-<button id="clearBracket">Clear Bracket</button>
-<button id="restoreBracket" class="hide">Restore Bracket</button>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -12,12 +12,12 @@ p, h1, h2, h3, label, button{
 }
 
 .submitted {
-  float: right;
+  /*float: right;*/
   min-height: 100px;
   min-width: 100px;
   max-width: 30%;
   background-color: tomato;
-  margin-right: 100px;
+  margin: auto;
 }
 
 /*.submittedTitle {
@@ -25,15 +25,17 @@ p, h1, h2, h3, label, button{
 }*/
 .submitted p {
   display: inline-block;
+
+
 }
 
 .container {
-  padding-top: 150px;
+  padding-top: 10vh;
 }
 
 .bucket p {
   font-size: 75%;
-
+  text-align: justify;
 }
 
 /* display flex on columns
@@ -49,14 +51,14 @@ buckets get align-items: center*/
   height: 100px;
   /*width: 20%;*/
   min-width: 50px;
-  background-color: lightblue;
+  background-color: lightgrey;
   margin: 5%;
   overflow: hidden;
   white-space: pre-wrap;
   align-items: center;
   justify-content: center;
-
-
+  border: 2px solid slategrey;
+  text-align: center;
 }
 
 .row {
@@ -100,4 +102,28 @@ h1, h3 {
 
 h3 {
   margin-top: 25px;
+}
+
+#bracketize {
+  display: block;
+  margin:  30px auto;
+  margin: bottom:
+}
+
+form {
+text-align: center;
+margin: 15%;
+margin-bottom: 10%;
+}
+
+#clearBracket, #restoreBracket {
+display: block;
+margin: 5px auto;
+}
+
+#clearBracket {
+  margin-top: 80px;
+}
+form button {
+  margin: 15px;
 }
