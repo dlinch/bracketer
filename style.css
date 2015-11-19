@@ -10,10 +10,11 @@
 
 .submitted {
   float: right;
-  min-height: 20%;
-  min-width: 20%;
+  min-height: 100px;
+  min-width: 100px;
   max-width: 30%;
   background-color: tomato;
+  margin-right: 100px;
 }
 
 /*.submittedTitle {
@@ -59,19 +60,21 @@ buckets get align-items: center*/
 
   margin-left: 0;
 }
-
+.columnHeight4{
+  height: 230px;
+}
 .columnHeight8{
-
+  height: 436px;
 }
 
 .columnHeight16{
-
+  height: 824px;
 }
 
 .columnHeight32{
-
+  height: 1648px;
 }
 
 .columnHeight64{
-  
+  height: 3296px;
 }

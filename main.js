@@ -48,12 +48,13 @@ $('#form').on('submit', function(event){
       event.preventDefault();
       var data = $('textarea').val();
       console.log("textarea input")
+      if(data.charAt(data.length-1)===","){
+        alert("Your string ends in a comma, dude! Clear bracket or it'll be jacked up.");
+      }
 
       if(bracketItems.length>0){
         var textArray= data.split(',')
-        // if (textArray[textArray.length]===""){
-        //   textarray.pop();
-        // }
+
         bracketItems = bracketItems.concat(textArray)
         $('.submitted').empty();
       } else{
@@ -148,16 +149,19 @@ $('#bracketSize').change(function(){
         $('.container').append(newColumn);
         var column = $('.column')
         if(seed===8){
-          column.css('height', '436px');
+          column.addClass('columnHeight8');
+        }
+        else if(seed===4){
+            column.addClass('columnHeight4')
         }
         else if (seed===16){
-          column.css('height', '824px');
+          column.addClass('columnHeight16');
         }
         else if (seed===32){
-          column.css('height', '1648px')
+          column.addClass('columnHeight32')
         }
         else if(seed===64){
-          column.css('height', '3296px')
+          column.addClass('columnHeight64')
         }
     }
 
@@ -177,7 +181,7 @@ $('#bracketSize').change(function(){
 
     //--------------------4 Seed Styling-------------
     if(bracketColumns[textSeedSize]===4){
-        columnFunction();
+        columnFunction(4);
 
         for(i=0; i<bucketNumber; i++){
 
