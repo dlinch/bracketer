@@ -142,11 +142,25 @@ $('#bracketSize').change(function(){
     $('.container').empty();
     $('#bracketize').removeClass('redBorder');
 
-    var columnFunction = function(){
+    var columnFunction = function(seed){
       for (var i = 0; i < bracketColumns[textSeedSize]; i++) {
-        var newColumn = $('<div id="column-'+i+'" class="col-xs-'+Math.floor(12/bracketColumns[textSeedSize])+'"></div>')
+        var newColumn = $('<div id="column-'+i+'" class="col-xs-'+Math.floor(12/bracketColumns[textSeedSize])+' column"></div>')
         $('.container').append(newColumn);
-      }
+        var column = $('.column')
+        if(seed===8){
+          column.css('height', '436px');
+        }
+        else if (seed===16){
+          column.css('height', '824px');
+        }
+        else if (seed===32){
+          column.css('height', '1648px')
+        }
+        else if(seed===64){
+          column.css('height', '3296px')
+        }
+    }
+
     }
 
     var seedSize = ($(this).val())
@@ -189,7 +203,8 @@ $('#bracketSize').change(function(){
     //--------------------8 Seed Styling-------------
     if(bracketColumns[textSeedSize]===6){
 
-        columnFunction();
+        columnFunction(8);
+
 
         for(i=0; i<bucketNumber; i++){
           var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
@@ -222,7 +237,17 @@ $('#bracketSize').change(function(){
     //--------------------16 Seed Styling-------------
     if(bracketColumns[textSeedSize]===8){
 
-        columnFunction();
+        columnFunction(16);
+        for(i=1; i<5; i++){
+            var newColumn = $('<div id="spacer-'+i+'" class="col-xs-'+Math.floor(12/bracketColumns[textSeedSize])+' column"></div>')
+
+            if(i%2===0){
+              newColumn.insertBefore($('#column-0'))
+            } else {
+              newColumn.insertAfter($('#column-7'))
+            }
+          }
+
 
         for(i=0; i<bucketNumber; i++){
           var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
@@ -268,7 +293,17 @@ $('#bracketSize').change(function(){
     //--------------------32 Seed Styling-------------
     if(bracketColumns[textSeedSize]===10){
 
-        columnFunction();
+        columnFunction(32);
+
+        for(i=1; i<3; i++){
+            var newColumn = $('<div id="spacer-'+i+'" class="col-xs-'+Math.floor(12/bracketColumns[textSeedSize])+' column"></div>')
+
+            if(i%2===0){
+              newColumn.insertBefore($('#column-0'))
+            } else {
+              newColumn.insertAfter($('#column-9'))
+            }
+          }
 
         for(i=0; i<bucketNumber; i++){
           var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
@@ -321,7 +356,7 @@ $('#bracketSize').change(function(){
     //--------------------64 Seed Styling-------------
     if(bracketColumns[textSeedSize]===12){
 
-      columnFunction();
+      columnFunction(64);
 
       for(i=0; i<bucketNumber; i++){
         var newBucket = $('<div id="bucket-'+i+'" class="col-xs-12 bucket"></div>')

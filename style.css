@@ -1,12 +1,4 @@
-.bucket {
-  height: 100px;
-  width: 20%;
-  min-width: 50px;
-  background-color: lightblue;
-  margin: 5%;
-  overflow: hidden;
-  white-space: pre-wrap;
-}
+
 
 .hide{
   display: none;
@@ -36,8 +28,50 @@
 }
 
 .bucket p {
-  font-size: .75em;
+  font-size: 75%;
+
 }
 
 /* display flex on columns
 buckets get align-items: center*/
+
+.column {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.bucket {
+  height: 100px;
+  /*width: 20%;*/
+  min-width: 50px;
+  background-color: lightblue;
+  margin: 5%;
+  overflow: hidden;
+  white-space: pre-wrap;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.row {
+
+  margin-left: 0;
+}
+
+.columnHeight8{
+
+}
+
+.columnHeight16{
+
+}
+
+.columnHeight32{
+
+}
+
+.columnHeight64{
+  
+}
