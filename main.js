@@ -19,12 +19,31 @@ var appendMachine = function(array){
 
   localStorage.setItem('appendedArray', JSON.stringify(array))
   for(i=0; (i<array.length && i<seedSelection); i++){
-    var item = "<p>" + array[i] + "</p>";
+    var item = "<p draggable='true' ondragstart='drag(event)' id='item"+i+"'>" + array[i] + "</p>";
     $('#bucket-'+i).empty();
     $('#bucket-'+i).prepend(item);
   }
 }
 
+function allowDrop(ev){
+  ev.preventDefault();
+}
+
+function drag(ev){
+  ev.dataTransfer.setData('text', ev.target.id);
+  ;
+}
+
+function drop(ev){
+  ev.preventDefault();
+  ev.target.innerHTML="";
+  var data = ev.dataTransfer.getData('text');
+  console.log(ev);
+  var nodeCopy = document.getElementById(data).cloneNode(true);
+  nodeCopy.id=data+"1"
+  ev.target.appendChild(nodeCopy);
+  // ev.target.innerHTML=data;
+}
 // jQuery to take input items and assign them to an array.
 //-------------------------------------------------------
 var bracketItems = [];
@@ -185,7 +204,7 @@ $('#bracketSize').change(function(){
 
         for(i=0; i<bucketNumber; i++){
 
-          var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+          var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
           if(i<2){
             $('#column-0').append(newBucket);
           }
@@ -211,7 +230,7 @@ $('#bracketSize').change(function(){
 
 
         for(i=0; i<bucketNumber; i++){
-          var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+          var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
           if(i<4){
             $('#column-0').append(newBucket);
           }
@@ -254,7 +273,7 @@ $('#bracketSize').change(function(){
 
 
         for(i=0; i<bucketNumber; i++){
-          var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+          var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
           if(i<8){
             $('#column-0').append(newBucket);
           }
@@ -310,7 +329,7 @@ $('#bracketSize').change(function(){
           }
 
         for(i=0; i<bucketNumber; i++){
-          var newBucket = $('<div id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+          var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
           if(i<16){
             $('#column-0').append(newBucket);
           }
@@ -363,7 +382,7 @@ $('#bracketSize').change(function(){
       columnFunction(64);
 
       for(i=0; i<bucketNumber; i++){
-        var newBucket = $('<div id="bucket-'+i+'" class="col-xs-12 bucket"></div>')
+        var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+i+'" class="col-xs-12 bucket"></div>')
 
         if(i<32){
           $('#column-0').append(newBucket);

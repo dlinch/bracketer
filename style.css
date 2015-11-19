@@ -36,6 +36,7 @@ p, h1, h2, h3, label, button{
 .bucket p {
   font-size: 75%;
   text-align: justify;
+  
 }
 
 /* display flex on columns
