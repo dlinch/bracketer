@@ -16,10 +16,11 @@ var shuffleArray = function(array){
 
 // Function to append shuffled array items to body divs
 //-------------------------------------------------------
-var appendMachine = function(array){
-
+var appendMachine = function(array, number){
+  debugger;
+  var dualSeed = number || seedSelection;
   localStorage.setItem('appendedArray', JSON.stringify(array))
-  for(i=0; (i<array.length && i<seedSelection); i++){
+  for(i=0; (i<array.length && i<dualSeed); i++){
     var item = "<p draggable='true' ondragstart='drag(event)' id='item"+i+"'>" + array[i] + "</p>";
     $('#bucket-'+i).empty();
     $('#bucket-'+i).prepend(item);
@@ -52,6 +53,9 @@ function drop(ev){
   var nodeCopy = document.getElementById(data).cloneNode(true);
   nodeCopy.id=data+"1"
   ev.target.appendChild(nodeCopy);
+  console.log(document.getElementById(data).textContent)
+  bracketItems.push(document.getElementById(data).textContent)
+  localStorage.setItem('appendedArray', JSON.stringify(bracketItems))
 }
 
 
@@ -75,7 +79,7 @@ $('#form').on('submit', function(event){
   else {
 
     if($('#bracketInput').hasClass('hide')){
-      debugger;
+      // debugger;
       event.preventDefault();
       var data = $('textarea').val();
       console.log("textarea input")
@@ -141,7 +145,7 @@ $('#clearBracket').on('click', function(){
 $('#restoreBracket').on('click', function(){
   var restoredBracket = JSON.parse(localStorage.getItem('appendedArray'))
   console.log(restoredBracket);
-  appendMachine(restoredBracket);
+  appendMachine(restoredBracket, (restoredBracket.length));
   $('#bracketize').addClass('redBorder');
   bracketItems= restoredBracket;
   // $('submitted').append(restoredBracket[i]+", ");
@@ -501,6 +505,7 @@ $('#nfl').on('click', function(){
 
 })
 
-
+$('option[value="4"]').attr('selected', true);
+$('#bracketSize').trigger('change');
 
 }) // End of document.ready function
