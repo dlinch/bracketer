@@ -222,14 +222,16 @@ $('#bracketSize').change(function(){
         columnFunction(4);
 
         for(i=0; i<bucketNumber; i++){
-
+          var nonDropBucket = $('<div id="bucket-'+i+'" class="col-xs-12 bucket"</div>')
           var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+
+
           if(i<2){
-            $('#column-0').append(newBucket);
+            $('#column-0').append(nonDropBucket);
           }
 
           else if (i<4){
-            $('#column-3').append(newBucket);
+            $('#column-3').append(nonDropBucket);
           }
 
           else if (i<5){
@@ -249,13 +251,15 @@ $('#bracketSize').change(function(){
 
 
         for(i=0; i<bucketNumber; i++){
+          var nonDropBucket = $('<div id="bucket-'+i+'" class="col-xs-12 bucket"</div>')
           var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+
           if(i<4){
-            $('#column-0').append(newBucket);
+            $('#column-0').append(nonDropBucket);
           }
 
           else if(i<8){
-            $('#column-5').append(newBucket);
+            $('#column-5').append(nonDropBucket);
           }
 
           else if(i<10){
@@ -292,13 +296,15 @@ $('#bracketSize').change(function(){
 
 
         for(i=0; i<bucketNumber; i++){
+          var nonDropBucket = $('<div id="bucket-'+i+'" class="col-xs-12 bucket"</div>')
           var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+
           if(i<8){
-            $('#column-0').append(newBucket);
+            $('#column-0').append(nonDropBucket);
           }
 
           else if(i<16){
-            $('#column-7').append(newBucket);
+            $('#column-7').append(nonDropBucket);
           }
 
           else if(i<20){
@@ -348,13 +354,15 @@ $('#bracketSize').change(function(){
           }
 
         for(i=0; i<bucketNumber; i++){
+          var nonDropBucket = $('<div id="bucket-'+i+'" class="col-xs-12 bucket"</div>')
           var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
+
           if(i<16){
-            $('#column-0').append(newBucket);
+            $('#column-0').append(nonDropBucket);
           }
 
           else if(i<32){
-            $('#column-9').append(newBucket);
+            $('#column-9').append(nonDropBucket);
           }
 
           else if(i<40){
@@ -401,14 +409,15 @@ $('#bracketSize').change(function(){
       columnFunction(64);
 
       for(i=0; i<bucketNumber; i++){
-        var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+i+'" class="col-xs-12 bucket"></div>')
+        var nonDropBucket = $('<div id="bucket-'+i+'" class="col-xs-12 bucket"</div>')
+        var newBucket = $('<div ondrop="drop(event)" ondragover="allowDrop(event)" id="bucket-'+ i + '" class="col-xs-12 bucket"></div>')
 
         if(i<32){
-          $('#column-0').append(newBucket);
+          $('#column-0').append(nonDropBucket);
         }
 
         else if(i<64){
-          $('#column-11').append(newBucket);
+          $('#column-11').append(nonDropBucket);
         }
 
         else if(i<80){
