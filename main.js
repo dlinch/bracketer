@@ -117,12 +117,14 @@ $('#form').on('submit', function(event){
 // to the divs.
 //-------------------------------------------------------
 $('#bracketize').on('click', function(){
-
-  var shuffledArray = shuffleArray(bracketItems);
-  console.log(shuffledArray);
-  appendMachine(shuffledArray);
-  $(this).addClass('redBorder');
+  if(bracketItems.length>0){
+    var shuffledArray = shuffleArray(bracketItems);
+    console.log(shuffledArray);
+    appendMachine(shuffledArray);
+    $(this).addClass('redBorder');
+}
 })
+
 
 
 // Clear bracket and submission div

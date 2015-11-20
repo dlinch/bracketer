@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Muli);
 
-p, h1, h2, h3, label, button{
+p, h1, h2, h3, h4, label, button{
   font-family: "Muli", sans-serif;
 }
 .hide{
@@ -16,8 +16,10 @@ p, h1, h2, h3, label, button{
   min-height: 100px;
   min-width: 100px;
   max-width: 30%;
-  background-color: tomato;
+  background-color: lightgrey;
   margin: auto;
+  border: 1px solid darkslateblue;
+  box-shadow: 2px 2px 10px black;
 }
 
 /*.submittedTitle {
@@ -25,7 +27,7 @@ p, h1, h2, h3, label, button{
 }*/
 .submitted p {
   display: inline-block;
-
+  color: indigo;
 
 }
 
@@ -34,9 +36,10 @@ p, h1, h2, h3, label, button{
 }
 
 .bucket p {
-  font-size: 75%;
+  font-size: 80%;
   text-align: justify;
-  
+  color: snow;
+
 }
 
 /* display flex on columns
@@ -52,14 +55,15 @@ buckets get align-items: center*/
   height: 100px;
   /*width: 20%;*/
   min-width: 50px;
-  background-color: lightgrey;
+  background: linear-gradient(black -10%, steelblue 120%);
   margin: 5%;
   overflow: hidden;
   white-space: pre-wrap;
   align-items: center;
   justify-content: center;
-  border: 2px solid slategrey;
+  border: 2px solid dimgrey;
   text-align: center;
+  box-shadow: 1px 1px 1px darkblue;
 }
 
 .row {
@@ -98,17 +102,21 @@ color: white;
 }
 
 h1, h3 {
-  text-shadow: 0 1px 1px rgba(0, 0, 0, .8);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .8);
 }
 
 h3 {
   margin-top: 25px;
 }
-
+h4 {
+  margin: 8px auto;
+  text-align: center;
+}
 #bracketize {
   display: block;
   margin:  30px auto;
-  margin: bottom:
+  margin: bottom;
+  padding: 30px;
 }
 
 form {
@@ -127,4 +135,15 @@ margin: 5px auto;
 }
 form button {
   margin: 15px;
+}
+
+main {
+  background: linear-gradient(#fff 10%, midnightblue 140%);
+}
+
+button {
+  box-shadow: 1px 0 2px slateblue;
+  border-radius: 15%;
+  background-color: darkslateblue;
+  color: snow;
 }
