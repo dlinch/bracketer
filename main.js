@@ -266,16 +266,16 @@ $('#bracketSize').change(function(){
             $('#column-1').append(newBucket);
           }
 
-          else if(i<11){
+          else if(i<12){
+            $('#column-4').append(newBucket);
+          }
+
+          else if(i<13){
             $('#column-2').append(newBucket);
           }
 
-          else if(i<12){
+          else if(i<14){
             $('#column-3').append(newBucket);
-          }
-
-          else {
-            $('#column-4').append(newBucket);
           }
         }
     }
@@ -311,28 +311,26 @@ $('#bracketSize').change(function(){
             $('#column-1').append(newBucket);
           }
 
-          else if(i<22){
-            $('#column-2').append(newBucket);
-          }
-
-          else if(i<23){
-            $('#column-3').append(newBucket);
-          }
-
           else if(i<24){
-            $('#column-4').append(newBucket);
+            $('#column-6').append(newBucket);
           }
 
           else if(i<26){
+            $('#column-2').append(newBucket);
+          }
+
+          else if(i<28){
             $('#column-5').append(newBucket);
           }
 
+          else if(i<29){
+            $('#column-3').append(newBucket);
+          }
+
           else if(i<30){
-            $('#column-6').append(newBucket);
+            $('#column-4').append(newBucket);
           }
-          else {
-            alert('Too many items! We left off the rest.')
-          }
+
         }
     }
 
@@ -369,32 +367,32 @@ $('#bracketSize').change(function(){
             $('#column-1').append(newBucket);
           }
 
-          else if(i<44){
+          else if(i<48){
+            $('#column-8').append(newBucket);
+          }
+
+          else if(i<52){
             $('#column-2').append(newBucket);
           }
 
-          else if(i<46){
-            $('#column-3').append(newBucket);
-          }
-
-          else if(i<47){
-            $('#column-4').append(newBucket);
-          }
-
-          else if(i<48){
-            $('#column-5').append(newBucket);
-          }
-
-          else if(i<50) {
-            $('#column-6').append(newBucket);
-          }
-
-          else if(i<54) {
+          else if(i<56){
             $('#column-7').append(newBucket);
           }
 
-          else if (i<63){
-            $('#column-8').append(newBucket);
+          else if(i<58){
+            $('#column-3').append(newBucket);
+          }
+
+          else if(i<60) {
+            $('#column-6').append(newBucket);
+          }
+
+          else if(i<61) {
+            $('#column-4').append(newBucket);
+          }
+
+          else if (i<62){
+            $('#column-5').append(newBucket);
           }
           else {
             alert('Too many items! We left off the rest.')
@@ -424,45 +422,43 @@ $('#bracketSize').change(function(){
           $('#column-1').append(newBucket);
         }
 
-        else if(i<88){
-          $('#column-2').append(newBucket);
-        }
-
-        else if(i<92){
-          $('#column-3').append(newBucket);
-        }
-
-        else if(i<94){
-          $('#column-4').append(newBucket);
-        }
-
-        else if(i<95){
-          $('#column-5').append(newBucket);
-        }
-
         else if(i<96){
-          $('#column-6').append(newBucket);
-        }
-
-        else if(i<98){
-          $('#column-7').append(newBucket);
-        }
-
-        else if(i<102){
-          $('#column-8').append(newBucket);
-        }
-
-        else if (i<110){
-          $('#column-9').append(newBucket);
-        }
-
-        else if(i<126){
           $('#column-10').append(newBucket);
         }
 
-        else {
-          alert('Too many items! We left off the rest.')
+        else if(i<103){
+          $('#column-2').append(newBucket);
         }
+
+        else if(i<112){
+          $('#column-9').append(newBucket);
+        }
+
+        else if(i<116){
+          $('#column-3').append(newBucket);
+        }
+
+        else if(i<120){
+          $('#column-8').append(newBucket);
+        }
+
+        else if(i<122){
+          $('#column-4').append(newBucket);
+        }
+
+        else if(i<124){
+          $('#column-7').append(newBucket);
+        }
+
+        else if (i<125){
+          $('#column-5').append(newBucket);
+        }
+
+        else if(i<126){
+          $('#column-6').append(newBucket);
+        }
+
+
       }
 
 
@@ -507,6 +503,7 @@ $('#nfl').on('click', function(){
       }
     var nflShuffle = shuffleArray(nflTeams);
     appendMachine(nflShuffle);
+    bracketItems=nflShuffle;
     })
 
   .fail(function(){
