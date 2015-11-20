@@ -426,7 +426,7 @@ $('#bracketSize').change(function(){
           $('#column-10').append(newBucket);
         }
 
-        else if(i<103){
+        else if(i<104){
           $('#column-2').append(newBucket);
         }
 
